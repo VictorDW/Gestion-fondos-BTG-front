@@ -1,0 +1,47 @@
+@import './../../../../styles/variables.scss';
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  top: 120px;
+  padding-top: 50px;
+  background-color: $primary-color;
+  overflow: hidden;
+}
+
+.nav_items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0.5em 0 0.5em 0;
+}
+
+.nav__item {
+  list-style: none;
+  width: 100%;
+}
+
+.active_link {
+  background-color: rgba($third-color, 0.4);
+  font-weight: bold;
+  border-radius: 12px;
+}
+
+.nav__link {
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  border-radius: 12px;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+
+  &:hover {
+    background-color: rgb($secondary-color, 0.7);
+  }
+}
