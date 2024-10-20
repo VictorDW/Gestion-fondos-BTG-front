@@ -21,6 +21,11 @@
         </app-select>
       </div>
       
+      <button class="order__btn" (click)="changeStateDirection()">
+        <i [class]="buttonDirection.icon"></i>
+        <span>{{ buttonDirection.text }}</span>
+      </button>
+
     </section>
     <section class="article__list">
         <ul *ngFor="let fund of allFunds" class="list__funds">

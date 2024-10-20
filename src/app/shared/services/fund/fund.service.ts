@@ -16,7 +16,9 @@ export class FundService implements IFundService {
 
     constructor(private _httpClient: HttpClient) {}
 
-    agregarfiltros(url: string, filterAndOrder: FilterAndOrder) {
+    agregarfiltros(filterAndOrder: FilterAndOrder) {
+
+        let url = Constants.EMPTY_STRING;
 
         if(filterAndOrder.category) {
             url += `&${Filters.CATEGORY}=${filterAndOrder.category}`
@@ -30,7 +32,7 @@ export class FundService implements IFundService {
     }
 
     getAllFund(filterAndOrder: FilterAndOrder): Observable<Fund[]> {
-        const newUrl = this.agregarfiltros(this._url, filterAndOrder);
-        return this._httpClient.get<Fund[]>(newUrl);
+        const newUrl = this.agregarfiltros(filterAndOrder);
+        return this._httpClient.get<Fund[]>(`${this._url}direction=${filterAndOrder.direction}${newUrl}`);
     }
 }

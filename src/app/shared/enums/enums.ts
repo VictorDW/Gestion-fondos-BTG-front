@@ -1,3 +1,5 @@
+import { EMPTY } from "rxjs";
+
 export enum PathImages {
     LOGO = 'assets/images/logo.png',
     IMG_USER = 'assets/images/user.png'
@@ -11,6 +13,7 @@ export const Constants = {
   NULL_VALUE: null,
   NULL_VALUE_STRING: 'null',
   QUESTION_MARK: '?',
+  EMPTY_STRING:""
 }
 
 export const Numbers = {

@@ -27,6 +27,13 @@ export class ListFundsComponent {
     this.filterAndOrderData
   }
 
+  changeStateDirection() {
+    this.buttonDirection = (this.buttonDirection.text != 'ASC') ? 
+      Direction.ASC : 
+      Direction.DESC;
+
+    this.updateDirection(this.buttonDirection.text);
+  }
 
   updateListFind(filterAndOrderData: FilterAndOrder) {
     this._fundServiceObservable.updateObservableFund(filterAndOrderData);
@@ -49,4 +56,10 @@ export class ListFundsComponent {
     this.filterAndOrderData.maxAmount = newValue ;
     this.updateListFind(this.filterAndOrderData);
   }
+
+  updateDirection(direction: string): void {
+    this.filterAndOrderData.direction = direction;
+    this.updateListFind(this.filterAndOrderData);
+  }
+
 }
