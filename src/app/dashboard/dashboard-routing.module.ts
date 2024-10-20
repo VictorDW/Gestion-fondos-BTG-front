@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { Constants } from '../shared/enums/enums';
 
 const routes: Routes = [
   { 
-    path: '', component: DashboardComponent,
+    path: Constants.EMPTY_STRING, component: DashboardComponent,
     children: [
       {
         path: 'funds', 

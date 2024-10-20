@@ -1,8 +1,14 @@
 <section class="funds">
-  <div class="funds-welcome">
-    <h1>Bienvenido,</h1>
-    <h2>{{nameClient}}</h2>
-  </div>
+  <article class="article-client">
+    <div class="client-welcome">
+      <span>{{ MESSAGE_WELCOME }}</span>
+      <span>{{ nameClient }}</span>
+    </div>
+    <div class="client-balance">
+      <span>{{ SYMBOL_PESOS }} {{ availableBalance | decimal }} {{ COP }}</span>
+    </div>
+  </article>
+
   <app-list-funds
   [allFunds]="allFunds"
   [allCategory]="optionsCategory"

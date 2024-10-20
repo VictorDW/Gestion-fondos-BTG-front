@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
+import { Constants } from 'src/app/shared/enums/enums';
 import { IClientService } from 'src/app/shared/interface/IClientService';
 import { Fund } from 'src/app/shared/models/Fund';
 import { ListFundService } from 'src/app/shared/services/observables/list-fund.service';
@@ -13,9 +14,14 @@ import { OptionSelect } from 'src/app/shared/types/types-component';
 export class FundsComponent implements OnInit {
 
   nameClient!: string;
+  availableBalance!: number
   allFunds!: Array<Fund>;
   optionsCategory: OptionSelect<string>[] = [];
   optionsAmount: OptionSelect<number>[] = [];
+
+  MESSAGE_WELCOME = Constants.MESSAGE_WELCOME;
+  SYMBOL_PESOS = Constants.SYMBOL_PESOS
+  COP = Constants.COP;
 
   constructor(private clientService: IClientService, private fundServiceObservable: ListFundService) {
     this.fillContentSelectCategory();
@@ -27,6 +33,7 @@ export class FundsComponent implements OnInit {
     this.clientService.getClientInfo().pipe(
       map(client => {
           this.nameClient = client.name;
+          this.availableBalance = client.availableBalance;
           return client;
       })
     ).subscribe();
