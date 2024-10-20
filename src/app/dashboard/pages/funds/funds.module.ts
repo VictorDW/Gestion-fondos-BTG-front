@@ -9,12 +9,14 @@ import { ClientService } from 'src/app/shared/services/client/client.service';
 import { IFundService } from 'src/app/shared/interface/IFundService';
 import { FundService } from 'src/app/shared/services/fund/fund.service';
 import { DecimalPointModule } from 'src/app/shared/pipe/decimal-point/decimal-point.module';
+import { SelectComponent } from 'src/app/atomic-design/molecules/select/select.component';
 
 
 @NgModule({
   declarations: [
     FundsComponent,
-    ListFundsComponent
+    ListFundsComponent,
+    SelectComponent
   ],
   imports: [
     CommonModule,

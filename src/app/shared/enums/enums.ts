@@ -5,6 +5,7 @@ export enum PathImages {
 
 export const Constants = {
   CATEGORY: 'Categoria:',
+  CATEGORY_FILTER: 'Por categoria:',
   SYMBOL_PESOS: '$',
 }
 
