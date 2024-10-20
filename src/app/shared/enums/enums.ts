@@ -7,6 +7,8 @@ export const Constants = {
   CATEGORY: 'Categoria:',
   CATEGORY_FILTER: 'Por categoria:',
   SYMBOL_PESOS: '$',
+  NULL_VALUE: null,
+  NULL_VALUE_STRING: 'null'
 }
 
 export const Numbers = {
@@ -29,3 +31,11 @@ export const DecimalPointConstants = {
   DOT: '.',
   COMMA: ',',
 };
+
+export const FILTER_AND_ORDER_DEFAULT = {
+  category: Constants.NULL_VALUE,
+}
+
+export enum Filters {
+  CATEGORY = 'category',
+}

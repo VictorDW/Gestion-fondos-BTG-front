@@ -8,7 +8,7 @@ export type navStructure = {
     _link: linkStructure
 }
 
-export type typeSelect = number | string | null;
+export type typeSelect = number | string;
 
 export type OptionSelect<T extends typeSelect> = {
   value: T,

@@ -4,3 +4,7 @@ export interface Fund {
     minimumAmount: number,
     category: string
 }
+
+export interface FilterAndOrder {
+    category: string | null,
+}

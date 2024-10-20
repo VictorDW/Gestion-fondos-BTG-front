@@ -6,7 +6,7 @@
         <span>{{CATEGORY_FILTER}} </span>
         <app-select
         [options]="allCategory"
-        (valueOptionSelected)="updateFilterByCategory($event)"
+        (valueOptionSelected)="updateFilterByCategory($event.toString())"
         >  
         </app-select>
       </div>

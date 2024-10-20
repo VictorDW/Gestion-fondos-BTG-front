@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
 import { IClientService } from 'src/app/shared/interface/IClientService';
-import { IFundService } from 'src/app/shared/interface/IFundService';
 import { Fund } from 'src/app/shared/models/Fund';
+import { ListFundService } from 'src/app/shared/services/observables/list-fund.service';
 import { OptionSelect } from 'src/app/shared/types/types-component';
 
 @Component({
@@ -14,10 +14,10 @@ export class FundsComponent implements OnInit {
 
   nameClient!: string;
   allFunds!: Array<Fund>;
-  optionsCategory: OptionSelect<string | null>[] = [];
+  optionsCategory: OptionSelect<string>[] = [];
 
-  constructor(private clientService: IClientService, private fundService: IFundService) {
-    this.fillContentSelectCategory()
+  constructor(private clientService: IClientService, private fundServiceObservable: ListFundService) {
+    this.fillContentSelectCategory();
   }
 
   ngOnInit(): void {
@@ -29,17 +29,17 @@ export class FundsComponent implements OnInit {
       })
     ).subscribe();
 
-    this.fundService.getAllFund().pipe(
-      map(funds => {
-          this.allFunds = funds;
-          return funds
-      })
-    ).subscribe();
+    this.fundServiceObservable.getObservableFund().pipe(
+        map(funds => {
+            this.allFunds = funds;
+            return funds
+        })
+      ).subscribe();
   }
 
   private fillContentSelectCategory(): void {
     this.optionsCategory = [
-      {value: null, name: 'sin filtro'},
+      {value: 'null', name: 'sin filtro'},
       {value: 'FIC', name: "FIC"},
       {value: 'FPV', name: "FPV"}
     ]

@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
-import { Fund } from "../models/Fund";
+import { FilterAndOrder, Fund } from "../models/Fund";
 
 export abstract class IFundService {
-    abstract getAllFund(): Observable<Fund[]>
+    abstract getAllFund(filterAndOrderData: FilterAndOrder): Observable<Fund[]>
 }
