@@ -1,0 +1,16 @@
+.funds {
+  position: fixed;
+  width: 83%;
+  height: 100vh;
+  margin-left: 17%;
+}
+
+.funds-welcome {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  height: 70px;
+  margin: 2rem 0 0 2rem;
+
+}
