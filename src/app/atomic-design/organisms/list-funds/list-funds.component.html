@@ -2,7 +2,8 @@
   <article class="fund-container__article">
 
     <section class="article__filter">
-      <div class="filter__category">
+
+      <div class="filter__item">
         <span>{{CATEGORY_FILTER}} </span>
         <app-select
         [options]="allCategory"
@@ -11,6 +12,15 @@
         </app-select>
       </div>
 
+      <div class="filter__item">
+        <span>{{AMOUNT_FILTER}} </span>
+        <app-select
+        [options]="allAmount"
+        (valueOptionSelected)="updateFilterByAmount(+$event)"
+        >  
+        </app-select>
+      </div>
+      
     </section>
     <section class="article__list">
         <ul *ngFor="let fund of allFunds" class="list__funds">

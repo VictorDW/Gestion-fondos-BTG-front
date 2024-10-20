@@ -14,3 +14,8 @@ export type OptionSelect<T extends typeSelect> = {
   value: T,
   name: string
 }
+
+export type ButtonDirection = {
+  icon: string,
+  text: string
+}

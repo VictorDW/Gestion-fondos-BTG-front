@@ -7,4 +7,6 @@ export interface Fund {
 
 export interface FilterAndOrder {
     category: string | null,
+    maxAmount: number | null,
+    direction: string
 }

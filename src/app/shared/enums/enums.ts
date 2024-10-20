@@ -6,9 +6,11 @@ export enum PathImages {
 export const Constants = {
   CATEGORY: 'Categoria:',
   CATEGORY_FILTER: 'Por categoria:',
+  AMOUNT_FILTER: 'Por monto maximo',
   SYMBOL_PESOS: '$',
   NULL_VALUE: null,
-  NULL_VALUE_STRING: 'null'
+  NULL_VALUE_STRING: 'null',
+  QUESTION_MARK: '?',
 }
 
 export const Numbers = {
@@ -32,10 +34,24 @@ export const DecimalPointConstants = {
   COMMA: ',',
 };
 
+export const Direction = {
+  ASC: {
+    icon: 'fa-solid fa-arrow-up-wide-short',
+    text: 'ASC'
+  },
+  DESC: {
+    icon: 'fa-solid fa-arrow-down-wide-short',
+    text: 'DESC'
+  }
+}
+
 export const FILTER_AND_ORDER_DEFAULT = {
   category: Constants.NULL_VALUE,
+  maxAmount: Constants.NULL_VALUE,
+  direction: Direction.ASC.text
 }
 
 export enum Filters {
   CATEGORY = 'category',
+  MAX_AMOUNT = 'maxAmount',
 }

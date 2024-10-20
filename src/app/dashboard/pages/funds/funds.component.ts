@@ -15,9 +15,11 @@ export class FundsComponent implements OnInit {
   nameClient!: string;
   allFunds!: Array<Fund>;
   optionsCategory: OptionSelect<string>[] = [];
+  optionsAmount: OptionSelect<number>[] = [];
 
   constructor(private clientService: IClientService, private fundServiceObservable: ListFundService) {
     this.fillContentSelectCategory();
+    this.fillContentSelectAmount();
   }
 
   ngOnInit(): void {
@@ -39,9 +41,20 @@ export class FundsComponent implements OnInit {
 
   private fillContentSelectCategory(): void {
     this.optionsCategory = [
-      {value: 'null', name: 'sin filtro'},
+      {value: 'null', name: 'Sin filtro'},
       {value: 'FIC', name: "FIC"},
       {value: 'FPV', name: "FPV"}
+    ]
+  }
+
+  private fillContentSelectAmount(): void {
+    this.optionsAmount = [
+      {value: 0, name: 'Sin filtro'},
+      {value: 50000, name: '$ 50.000'},
+      {value: 75000, name: '$ 75.000'},
+      {value: 100000, name: '$ 100.000'},
+      {value: 125000, name: '$ 125.000'},
+      {value: 250000, name: '$ 250.000'}
     ]
   }
 

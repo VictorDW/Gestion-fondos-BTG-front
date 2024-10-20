@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Constants, FILTER_AND_ORDER_DEFAULT } from 'src/app/shared/enums/enums';
+import { Component, Input } from '@angular/core';
+import { Constants, Direction, FILTER_AND_ORDER_DEFAULT, Numbers } from 'src/app/shared/enums/enums';
 import { FilterAndOrder, Fund } from 'src/app/shared/models/Fund';
 import { ListFundService } from 'src/app/shared/services/observables/list-fund.service';
-import { OptionSelect, typeSelect } from 'src/app/shared/types/types-component';
+import { ButtonDirection, OptionSelect } from 'src/app/shared/types/types-component';
 
 @Component({
   selector: 'app-list-funds',
@@ -11,19 +11,26 @@ import { OptionSelect, typeSelect } from 'src/app/shared/types/types-component';
 })
 export class ListFundsComponent {
 
-  @Input() allCategory!: OptionSelect<string>[];
   @Input() allFunds!: Fund[];
-
+  @Input() allCategory!: OptionSelect<string>[];
+  @Input() allAmount!: OptionSelect<number>[];
+ 
   readonly CATEGORY = Constants.CATEGORY;
   readonly CATEGORY_FILTER = Constants.CATEGORY_FILTER;
+  readonly AMOUNT_FILTER = Constants.AMOUNT_FILTER;
   readonly SYMBOL = Constants.SYMBOL_PESOS;
 
   filterAndOrderData: FilterAndOrder = FILTER_AND_ORDER_DEFAULT;
+  buttonDirection: ButtonDirection = Direction.ASC;
 
   constructor(private _fundServiceObservable: ListFundService ) {
     this.filterAndOrderData
   }
 
+
+  updateListFind(filterAndOrderData: FilterAndOrder) {
+    this._fundServiceObservable.updateObservableFund(filterAndOrderData);
+  }
   
   updateFilterByCategory(value: string) {
     let newValue = value === Constants.NULL_VALUE_STRING ? 
@@ -34,7 +41,12 @@ export class ListFundsComponent {
     this.updateListFind(this.filterAndOrderData);
   }
 
-  updateListFind(filterAndOrderData: FilterAndOrder) {
-    this._fundServiceObservable.updateObservableFund(filterAndOrderData);
+  updateFilterByAmount(value: number) {
+    let newValue = value === Numbers.NUM_ZERO ? 
+      Constants.NULL_VALUE : 
+      value;
+
+    this.filterAndOrderData.maxAmount = newValue ;
+    this.updateListFind(this.filterAndOrderData);
   }
 }
