@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Constants, Direction, FILTER_AND_ORDER_DEFAULT, Numbers } from 'src/app/shared/enums/enums';
 import { FilterAndOrder, Fund } from 'src/app/shared/models/Fund';
 import { ListFundService } from 'src/app/shared/services/observables/list-fund.service';

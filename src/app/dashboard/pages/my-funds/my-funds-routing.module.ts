@@ -5,7 +5,18 @@ import { MyFundsComponent } from './my-funds.component';
 
 const routes: Routes = [
   {
-    path: Constants.EMPTY_STRING, component: MyFundsComponent
+    path: Constants.EMPTY_STRING, component: MyFundsComponent,
+    children: [
+      {
+        path: 'transactions',
+        loadChildren: () => import('./pages/transaction/transaction.module').then( module => module.TransactionModule)
+      },
+      {
+        path: '**',
+        redirectTo: 'transactions',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 

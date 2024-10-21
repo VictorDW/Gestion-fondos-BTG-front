@@ -1,0 +1,67 @@
+@import '../../../../styles/variables.scss';
+
+.transaction_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 50px;
+}
+
+.transactions-container__list {
+    padding: 0 250px 0 50px;
+    height: calc(100vh - 350px);
+    overflow-y: auto;
+  
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+  
+    &::-webkit-scrollbar-track {
+        background-color: $background-color;
+        border-radius: 20px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary-color;
+        border-radius: 20px;
+    }
+}
+
+.list__transaction {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 2px solid $primary-color;
+}
+
+.transaction {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    list-style: none;
+    padding: 1rem 1rem 1rem 0;
+    color: $primary-color;
+    font-weight: 600;
+}   
+
+.transaction--secondary {
+    text-align: end;
+    font-size: $medium-text;
+}
+
+.transaction__date {
+    font-size: $big-text;
+}
+
+.transaction__name {
+    color: $secondary-color;
+    font-size: $small-text;
+}
+
+.transaction__type--opening {
+    color: #28A745;
+}
+
+.transaction__type--cancelation {
+    color: #DC3545;
+}

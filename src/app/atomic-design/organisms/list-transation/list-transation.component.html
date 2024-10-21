@@ -1,0 +1,21 @@
+<section class="transaction_container">
+    <article class="transactions-container__list">
+        <ul class=list__transaction *ngFor="let transaction of allTransaction">
+            <li class="transaction">
+                <span class="transaction__date">
+                    {{ transaction.dateRegistration | date: 'dd-MM-yyyy' }}
+                </span>
+                <span class="transaction__name">{{ transaction.nameFund }}</span>
+            </li>
+            <li class="transaction transaction--secondary">
+                <span [ngClass]="obtainColorByType(transaction.type)">
+                    {{ transaction.type }}
+                </span>
+                <span>
+                    {{this.validateIfBalanceRemains(transaction.type)}}{{ transaction.mount | decimal}}
+                </span>
+            </li>
+        </ul>
+    </article>
+</section>
+<
