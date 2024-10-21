@@ -43,7 +43,7 @@ export class FundsComponent implements OnInit {
             this.allFunds = funds;
             return funds
         })
-      ).subscribe();
+    ).subscribe();
   }
 
   private fillContentSelectCategory(): void {

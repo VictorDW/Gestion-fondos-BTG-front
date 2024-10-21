@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Constants, Direction, FILTER_AND_ORDER_DEFAULT, Numbers } from 'src/app/shared/enums/enums';
 import { FilterAndOrder, Fund } from 'src/app/shared/models/Fund';
 import { ListFundService } from 'src/app/shared/services/observables/list-fund.service';
@@ -20,11 +20,12 @@ export class ListFundsComponent {
   readonly AMOUNT_FILTER = Constants.AMOUNT_FILTER;
   readonly SYMBOL = Constants.SYMBOL_PESOS;
 
-  filterAndOrderData: FilterAndOrder = FILTER_AND_ORDER_DEFAULT;
-  buttonDirection: ButtonDirection = Direction.ASC;
+  filterAndOrderData!: FilterAndOrder;
+  buttonDirection!: ButtonDirection;
 
   constructor(private _fundServiceObservable: ListFundService ) {
-    this.filterAndOrderData
+    this.filterAndOrderData = structuredClone(FILTER_AND_ORDER_DEFAULT);
+    this.buttonDirection = structuredClone(Direction.ASC);
   }
 
   changeStateDirection() {
