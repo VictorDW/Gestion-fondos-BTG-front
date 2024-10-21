@@ -21,7 +21,7 @@ export class NavComponent {
         }
       },
       {
-        _href: '/dashboard/myFunds',
+        _href: '/dashboard/my-funds',
         _link: {
           _title: 'Mis suscripciones',
         }

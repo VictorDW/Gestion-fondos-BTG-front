@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/funds/funds.module').then( module => module.FundsModule)
       },
       {
+        path: 'my-funds', 
+        loadChildren: () => import('./pages/my-funds/my-funds.module').then( module => module.MyFundsModule)
+      },
+      {
         path: '**',
         redirectTo: 'funds',
         pathMatch: 'full'
