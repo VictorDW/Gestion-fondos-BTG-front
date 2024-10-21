@@ -23,7 +23,7 @@ export class NavComponent {
       {
         _href: '/dashboard/myFunds',
         _link: {
-          _title: 'Mis fondos',
+          _title: 'Mis suscripciones',
         }
       }
     ]

@@ -28,7 +28,7 @@ export class ListFundsComponent {
   }
 
   changeStateDirection() {
-    this.buttonDirection = (this.buttonDirection.text != 'ASC') ? 
+    this.buttonDirection = (this.buttonDirection.text != Direction.ASC.text) ? 
       Direction.ASC : 
       Direction.DESC;
 
