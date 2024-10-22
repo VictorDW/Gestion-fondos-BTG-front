@@ -15,6 +15,7 @@ export const Constants = {
   EMPTY_STRING:"",
   MESSAGE_WELCOME: "Bienvenid@, ",
   COP: 'COP',
+  OPENING_SUB: 'Apertura'
 }
 
 export const Numbers = {
@@ -58,4 +59,28 @@ export const FILTER_AND_ORDER_DEFAULT = {
 export enum Filters {
   CATEGORY = 'category',
   MAX_AMOUNT = 'maxAmount',
+}
+
+export const StyleButton = {
+  SUBSCRITION: {
+    showIcon: true,
+    icon: 'fa-solid fa-plus',
+    text: 'Suscribirme'
+  },
+  SUSSESS: {
+    showIcon: false,
+    text: 'Aceptar'
+  },
+}
+
+export const DataForm = {
+  title_form: 'Suscribirse',
+  label_select: 'Seleccione un fondo de inversión',
+  label_input: 'Monto',
+  placeholder: 'Monto de inversión',
+  controle_amount: 'investmentAmount'
+}
+
+export enum Pattern{
+  AMOUNT = '^[0-9]+$',
 }

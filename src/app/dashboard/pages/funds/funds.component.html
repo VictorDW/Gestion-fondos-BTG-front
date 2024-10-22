@@ -15,4 +15,14 @@
   [allAmount]="optionsAmount"
   >
   </app-list-funds>
+
+  <article class="funds__button">
+    <app-button [itemButton]="subscribeButton" (click)="changeStateFrom()"></app-button>
+  </article>
+
+  <app-form *ngIf="isShowFrom"
+  (closeForm)="changeStateFrom()"
+  > 
+  </app-form>
+
 </section>

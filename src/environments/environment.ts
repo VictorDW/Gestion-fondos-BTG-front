@@ -1,4 +1,3 @@
-import { TRANSLATIONS } from "@angular/core";
 
 export const environment = {
   BASE_URL: 'http://localhost:8080/api/'
@@ -10,4 +9,5 @@ export enum Endpoints {
   CLIENT = 'client/',
   FUND = 'fund',
   TRANSACTION = '/transactions',
+  SUBSCRITION = '/subscription'
 }

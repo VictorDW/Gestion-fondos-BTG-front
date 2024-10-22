@@ -12,11 +12,11 @@ import { Constants, Filters } from "../../enums/enums";
 })
 export class FundService implements IFundService {
 
-    private _url = environment.BASE_URL + Endpoints.FUND + Constants.QUESTION_MARK;
+    private _url = environment.BASE_URL + Endpoints.FUND;
 
     constructor(private _httpClient: HttpClient) {}
 
-    agregarfiltros(filterAndOrder: FilterAndOrder) {
+    private agregarfiltros(filterAndOrder: FilterAndOrder) {
 
         let url = Constants.EMPTY_STRING;
 
@@ -33,6 +33,11 @@ export class FundService implements IFundService {
 
     getAllFund(filterAndOrder: FilterAndOrder): Observable<Fund[]> {
         const newUrl = this.agregarfiltros(filterAndOrder);
-        return this._httpClient.get<Fund[]>(`${this._url}direction=${filterAndOrder.direction}${newUrl}`);
+        return this._httpClient.get<Fund[]>(`${this._url}${Constants.QUESTION_MARK}direction=${filterAndOrder.direction}${newUrl}`);
+    }
+
+
+    getAllFundWithout(): Observable<Fund[]> {
+        return this._httpClient.get<Fund[]>(this._url);
     }
 }

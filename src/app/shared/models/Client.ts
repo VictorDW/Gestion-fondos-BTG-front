@@ -13,3 +13,8 @@ export interface Transaction {
   mount: number,
   dateRegistration: string
 }
+
+export interface Subscription {
+  fundId: number,
+  investmentAmount: number
+}

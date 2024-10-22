@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs';
-import { Constants } from 'src/app/shared/enums/enums';
+import { Constants, StyleButton } from 'src/app/shared/enums/enums';
 import { IClientService } from 'src/app/shared/interface/IClientService';
 import { Fund } from 'src/app/shared/models/Fund';
 import { ListFundService } from 'src/app/shared/services/observables/list-fund.service';
@@ -18,7 +18,9 @@ export class FundsComponent implements OnInit {
   allFunds!: Array<Fund>;
   optionsCategory: OptionSelect<string>[] = [];
   optionsAmount: OptionSelect<number>[] = [];
+  isShowFrom = false;
 
+  subscribeButton = StyleButton.SUBSCRITION;
   MESSAGE_WELCOME = Constants.MESSAGE_WELCOME;
   SYMBOL_PESOS = Constants.SYMBOL_PESOS
   COP = Constants.COP;
@@ -63,6 +65,10 @@ export class FundsComponent implements OnInit {
       {value: 125000, name: '$ 125.000'},
       {value: 250000, name: '$ 250.000'}
     ]
+  }
+
+  changeStateFrom(): void {
+    this.isShowFrom = !this.isShowFrom;
   }
 
 

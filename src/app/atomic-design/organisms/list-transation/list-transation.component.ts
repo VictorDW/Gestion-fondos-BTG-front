@@ -12,13 +12,13 @@ export class ListTransationComponent {
   @Input() allTransaction!: Array<Transaction>;
 
   obtainColorByType(type: string) {
-    return type != 'Apertura' ?  
+    return type != Constants.OPENING_SUB ?  
       'transaction__type--cancelation' : 
       'transaction__type--opening'
   }
 
   validateIfBalanceRemains(type: string) {
-    return type != 'Apertura' ? 
+    return type === Constants.OPENING_SUB ? 
     `${Constants.SYMBOL_PESOS} -` :
     `${Constants.SYMBOL_PESOS} `;
   }

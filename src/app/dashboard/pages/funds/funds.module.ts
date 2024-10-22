@@ -10,18 +10,25 @@ import { IFundService } from 'src/app/shared/interface/IFundService';
 import { FundService } from 'src/app/shared/services/fund/fund.service';
 import { DecimalPointModule } from 'src/app/shared/pipe/decimal-point/decimal-point.module';
 import { SelectComponent } from 'src/app/atomic-design/molecules/select/select.component';
+import { ButtonComponent } from 'src/app/atomic-design/atoms/button/button.component';
+import { FormComponent } from 'src/app/atomic-design/organisms/form/form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     FundsComponent,
     ListFundsComponent,
-    SelectComponent
+    SelectComponent,
+    ButtonComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
     FundsRoutingModule,
-    DecimalPointModule
+    DecimalPointModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [
     {provide: IClientService, useClass: ClientService},

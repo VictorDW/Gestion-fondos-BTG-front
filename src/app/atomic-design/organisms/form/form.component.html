@@ -1,0 +1,30 @@
+<div class="subscription">
+    <section class="susbcription__section">
+        <header class="section__header">
+            <h1>{{ titleForm }}</h1>
+            <button class="button header__button" (click)="onCloseForm()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </header>
+
+        <form class="section__form" [formGroup]="form" (ngSubmit)="onSubmitForm()">
+            <div class="form__container">
+                <label class="container__label"> {{ dataForm.label_select }} </label>
+                <app-select class="container__select"
+                [options]="optionsFunds"
+                (valueOptionSelected)="updateSelectedOption(+$event)"
+                >
+                </app-select>   
+            </div>
+            <div class="form__container">
+                <label class="container__label"> {{ dataForm.label_input }} </label> 
+                <input class="container__input"
+                type="text"
+                [formControlName]="dataForm.controle_amount"
+                [placeholder]="dataForm.placeholder"
+                autofocus> 
+            </div>
+            <app-button [itemButton]="itemButton" [disabled]="this.disableButton()"></app-button>
+        </form>
+    </section>
+</div>

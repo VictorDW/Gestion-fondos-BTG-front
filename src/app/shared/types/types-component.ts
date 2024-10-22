@@ -19,3 +19,9 @@ export type ButtonDirection = {
   icon: string,
   text: string
 }
+
+export type buttonStructure = {
+  showIcon: boolean,
+  icon?: string,
+  text: string
+}
