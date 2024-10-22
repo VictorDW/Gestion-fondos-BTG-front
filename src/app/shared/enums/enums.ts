@@ -84,3 +84,7 @@ export const DataForm = {
 export enum Pattern{
   AMOUNT = '^[0-9]+$',
 }
+
+export const MessagesModal = {
+  SUSSEC: 'Suscrición exitosa',
+}

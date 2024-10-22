@@ -1,5 +1,5 @@
 <div class="subscription">
-    <section class="susbcription__section">
+    <section class="susbcription__section" *ngIf="!isShowModal">
         <header class="section__header">
             <h1>{{ titleForm }}</h1>
             <button class="button header__button" (click)="onCloseForm()">
@@ -27,4 +27,9 @@
             <app-button [itemButton]="itemButton" [disabled]="this.disableButton()"></app-button>
         </form>
     </section>
+    <app-modal *ngIf="isShowModal"
+    [titleModal]="titleModal"
+    (closeModal)="onCloseModals()"
+    >
+    </app-modal>
 </div>

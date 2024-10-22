@@ -13,6 +13,7 @@ import { SelectComponent } from 'src/app/atomic-design/molecules/select/select.c
 import { ButtonComponent } from 'src/app/atomic-design/atoms/button/button.component';
 import { FormComponent } from 'src/app/atomic-design/organisms/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from 'src/app/atomic-design/molecules/modal/modal.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ListFundsComponent,
     SelectComponent,
     ButtonComponent,
-    FormComponent
+    FormComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

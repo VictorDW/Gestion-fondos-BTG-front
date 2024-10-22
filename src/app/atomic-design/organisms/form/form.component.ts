@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Constants, DataForm, Numbers, Pattern, StyleButton } from 'src/app/shared/enums/enums';
+import { Constants, DataForm, MessagesModal, Numbers, Pattern, StyleButton } from 'src/app/shared/enums/enums';
 import { IClientService } from 'src/app/shared/interface/IClientService';
 import { IFundService } from 'src/app/shared/interface/IFundService';
 import { buttonStructure, OptionSelect } from 'src/app/shared/types/types-component';
@@ -20,6 +20,8 @@ export class FormComponent {
   optionsFunds: OptionSelect<number>[] = [];
   fundIdSelect: number;
   itemButton: buttonStructure = StyleButton.SUBSCRITION;
+  isShowModal: boolean = false;
+  titleModal: string = MessagesModal.SUSSEC
 
   constructor(private clientService: IClientService) {
     this.form = this.addValidations();
@@ -50,8 +52,19 @@ export class FormComponent {
     ];
   }
 
+  
+
   onCloseForm(): void {
     this.closeForm.emit();
+  }
+
+  changeStatusModal(): void {
+    this.isShowModal = !this.isShowModal;
+  }
+
+  onCloseModals(): void {
+    this.changeStatusModal();
+    this.onCloseForm();
   }
 
   updateSelectedOption(value: number) {
@@ -60,12 +73,17 @@ export class FormComponent {
 
   onSubmitForm() {
     if(this.form.valid) {
-      console.log(this.form.get(this.dataForm.controle_amount)?.value);
-      console.log(this.fundIdSelect);
-      this.clientService.subscriptionFund({
-        fundId: this.fundIdSelect,
-        investmentAmount: this.form.get(this.dataForm.controle_amount)?.value
-      }).subscribe();
+      this.clientService.subscriptionFund(this.mapperValuesToSubscription())
+      .subscribe(() => {
+        this.changeStatusModal();
+      });
+    }
+  }
+
+  mapperValuesToSubscription() {
+    return {
+      fundId: this.fundIdSelect,
+      investmentAmount: this.form.get(this.dataForm.controle_amount)?.value
     }
   }
 
@@ -76,6 +94,5 @@ export class FormComponent {
   disableButton(): boolean {
     return this.form.invalid;
   }
-
 
 }
