@@ -86,5 +86,11 @@ export enum Pattern{
 }
 
 export const MessagesModal = {
-  SUSSEC: 'Suscrición exitosa',
+  SUSSESS: {
+    icon: 'fa-circle-check',
+    text: 'Suscrición exitosa'
+  },  
+  ERROR: {
+    icon: 'fa-circle-xmark',
+  }
 }

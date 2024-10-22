@@ -11,6 +11,7 @@ import { buttonStructure } from 'src/app/shared/types/types-component';
 export class ModalComponent {
 
   @Input() titleModal: string = Constants.EMPTY_STRING;
+  @Input() icon!: string;
   @Output() closeModal = new EventEmitter<void>();
 
   itemButton!: buttonStructure;

@@ -10,7 +10,7 @@
     background-color: white;
     overflow: hidden; 
     align-items: center;
-    gap: 15px;
+    gap: 25px;
 }
 
 .modal-alert__button {
@@ -34,13 +34,20 @@
 }
 
 .fa-circle-check{
-    color: #00b880;
+    color: $sucess-color;
+    font-size: 5rem;
+    right: 50%;
+}
+
+.fa-circle-xmark {
+    color: $error-color;
     font-size: 5rem;
     right: 50%;
 }
 
 .modal-alert__title {
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 400;
+    text-align: center;
     color: #141413;
 }

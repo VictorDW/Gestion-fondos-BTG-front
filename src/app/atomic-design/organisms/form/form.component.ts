@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { catchError, throwError } from 'rxjs';
 import { Constants, DataForm, MessagesModal, Numbers, Pattern, StyleButton } from 'src/app/shared/enums/enums';
 import { IClientService } from 'src/app/shared/interface/IClientService';
 import { IFundService } from 'src/app/shared/interface/IFundService';
@@ -21,7 +22,8 @@ export class FormComponent {
   fundIdSelect: number;
   itemButton: buttonStructure = StyleButton.SUBSCRITION;
   isShowModal: boolean = false;
-  titleModal: string = MessagesModal.SUSSEC
+  titleModal: string = MessagesModal.SUSSESS.text;
+  iconModal: string = MessagesModal.SUSSESS.icon;
 
   constructor(private clientService: IClientService) {
     this.form = this.addValidations();
@@ -52,8 +54,6 @@ export class FormComponent {
     ];
   }
 
-  
-
   onCloseForm(): void {
     this.closeForm.emit();
   }
@@ -74,10 +74,21 @@ export class FormComponent {
   onSubmitForm() {
     if(this.form.valid) {
       this.clientService.subscriptionFund(this.mapperValuesToSubscription())
-      .subscribe(() => {
+      .pipe(
+        catchError((error) => {
+          this.wrongCase(error)
+          return throwError(() => error)
+        })
+      ).subscribe(() => {
         this.changeStatusModal();
       });
     }
+  }
+
+  wrongCase(error: any) {
+    this.titleModal = error.error?.message
+    this.iconModal = MessagesModal.ERROR.icon
+    this.changeStatusModal();
   }
 
   mapperValuesToSubscription() {
