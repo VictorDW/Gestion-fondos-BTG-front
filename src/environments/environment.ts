@@ -10,5 +10,6 @@ export enum Endpoints {
   FUND = 'fund',
   TRANSACTION = '/transactions',
   SUBSCRITION = '/subscription',
-  SUBSCRITEND = '/subscriptions'
+  SUBSCRITEND = '/subscriptions',
+  UNSUBSCRIPTION = '/unsubcription/'
 }

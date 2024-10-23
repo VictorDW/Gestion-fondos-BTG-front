@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subject, switchMap } from "rxjs";
+import { BehaviorSubject, Observable, switchMap } from "rxjs";
 import { Client } from "../../models/Client";
 import { ClientService } from "../client/client.service";
 
