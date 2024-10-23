@@ -10,7 +10,7 @@ import { Transaction } from 'src/app/shared/models/Client';
 })
 export class TransactionComponent {
 
-  allTransaction!: Array<Transaction>
+  allTransaction!: Transaction[]
 
   constructor(private _transactionService: ITransactionService) {
 

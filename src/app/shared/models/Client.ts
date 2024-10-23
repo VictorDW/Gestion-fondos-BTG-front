@@ -1,4 +1,3 @@
-import { Data } from "@angular/router";
 
 export interface Client {
   id: string;
@@ -17,4 +16,8 @@ export interface Transaction {
 export interface Subscription {
   fundId: number,
   investmentAmount: number
+}
+
+export interface Subscribed extends Subscription{
+  name: string
 }

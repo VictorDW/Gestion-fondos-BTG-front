@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { catchError, throwError } from 'rxjs';
 import { Constants, DataForm, MessagesModal, Numbers, Pattern, StyleButton } from 'src/app/shared/enums/enums';
 import { IClientService } from 'src/app/shared/interface/IClientService';
-import { IFundService } from 'src/app/shared/interface/IFundService';
 import { ClientObservableService } from 'src/app/shared/services/observables/client-observable.service';
 import { buttonStructure, OptionSelect } from 'src/app/shared/types/types-component';
 

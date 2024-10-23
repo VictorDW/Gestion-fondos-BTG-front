@@ -12,6 +12,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/transaction/transaction.module').then( module => module.TransactionModule)
       },
       {
+        path: 'subscrited',
+        loadChildren: () => import('./pages/funds-subscrited/funds-subscrited.module').then( module => module.FundsSubscritedModule)
+      },
+      {
         path: '**',
         redirectTo: 'transactions',
         pathMatch: 'full'

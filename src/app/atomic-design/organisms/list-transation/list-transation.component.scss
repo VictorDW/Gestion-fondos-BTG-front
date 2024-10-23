@@ -8,7 +8,7 @@
 }
 
 .transactions-container__list {
-    padding: 0 250px 0 50px;
+    padding: 0 50px 0 50px;
     height: calc(100vh - 350px);
     overflow-y: auto;
   
@@ -56,6 +56,7 @@
 .transaction__name {
     color: $secondary-color;
     font-size: $small-text;
+    font-weight: 600;
 }
 
 .transaction__type--opening {

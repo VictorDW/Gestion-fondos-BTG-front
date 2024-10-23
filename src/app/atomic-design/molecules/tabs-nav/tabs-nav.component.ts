@@ -17,7 +17,7 @@ export class TabsNavComponent {
         _title: 'Transacciones'
       }
     },{
-      _href:'subscriptions',
+      _href:'subscrited',
       _link: {
         _title: 'Subcripciones'
       }

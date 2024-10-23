@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { IClientService, ITransactionService } from "../../interface/IClientService";
 import { Observable } from "rxjs";
-import { Client, Subscription, Transaction} from "../../models/Client";
+import { Client, Subscription, Subscribed, Transaction} from "../../models/Client";
 import { environment, Endpoints, clientId } from "src/environments/environment";
 import { HttpClient } from "@angular/common/http";
 
@@ -25,6 +25,10 @@ export class ClientService implements IClientService, ITransactionService {
 
   subscriptionFund(subscription: Subscription): Observable<void> {
     return this._httpClient.post<void>(`${this._url}${Endpoints.SUBSCRITION}`, subscription);
+  }
+
+  getFundsSubcrited(): Observable<Subscribed[]> {
+    return this._httpClient.get<Subscribed[]>(`${this._url}${Endpoints.SUBSCRITEND}`)
   }
 
 }
