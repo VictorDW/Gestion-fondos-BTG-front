@@ -4,6 +4,7 @@ import { catchError, throwError } from 'rxjs';
 import { Constants, DataForm, MessagesModal, Numbers, Pattern, StyleButton } from 'src/app/shared/enums/enums';
 import { IClientService } from 'src/app/shared/interface/IClientService';
 import { IFundService } from 'src/app/shared/interface/IFundService';
+import { ClientObservableService } from 'src/app/shared/services/observables/client-observable.service';
 import { buttonStructure, OptionSelect } from 'src/app/shared/types/types-component';
 
 @Component({
@@ -25,7 +26,10 @@ export class FormComponent {
   titleModal: string = MessagesModal.SUSSESS.text;
   iconModal: string = MessagesModal.SUSSESS.icon;
 
-  constructor(private clientService: IClientService) {
+  constructor(
+    private clientService: IClientService, 
+    private clientObservableService: ClientObservableService 
+  ) {
     this.form = this.addValidations();
     this.fillContentSelectCategory();
     this.fundIdSelect = this.optionsFunds[Numbers.NUM_ZERO].value;
@@ -77,9 +81,11 @@ export class FormComponent {
       .pipe(
         catchError((error) => {
           this.wrongCase(error)
+          
           return throwError(() => error)
         })
       ).subscribe(() => {
+        this.updateClientInformation();
         this.changeStatusModal();
       });
     }
@@ -104,6 +110,10 @@ export class FormComponent {
 
   disableButton(): boolean {
     return this.form.invalid;
+  }
+
+  updateClientInformation() {
+    this.clientObservableService.updateObservableClient();
   }
 
 }

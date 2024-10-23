@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { IFundService } from "../../interface/IFundService";
 import { BehaviorSubject, Observable, Subject, switchMap } from "rxjs";
 import { FilterAndOrder, Fund } from "../../models/Fund";
 import { FundService } from "../fund/fund.service";
