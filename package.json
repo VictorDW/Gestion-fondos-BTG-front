@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration=production",
+    "deploy:s3": "aws s3 sync dist/btg s3://btg-frontend-bucket",
+    "verify:deploy": "aws s3 ls s3://btg-frontend-bucket",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
