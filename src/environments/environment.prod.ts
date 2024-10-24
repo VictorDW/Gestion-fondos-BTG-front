@@ -1,7 +1,7 @@
 
 export const environment = {
-  production: false,
-  BASE_URL: 'http://localhost:8080/api/'
+  production: true,
+  BASE_URL: 'http://3.235.95.70:8080/api/'
 }
 
 export const clientId = '670ff7facaba27fa00d268ae';
