@@ -1,0 +1,54 @@
+@import '../../../../styles/variables.scss';
+
+.funds {
+  position: fixed;
+  width: 83%;
+  height: 100vh;
+  margin-left: 17%;
+}
+
+.article-client {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.client-welcome {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  height: 70px;
+  margin: 2rem 0 0 2rem;
+  color: $primary-color;
+}
+
+.client-welcome > span{
+  font-size: $extra-big-text;
+  font-weight: 700;
+}
+
+.client-balance {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 80px;
+  gap: 6px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  background-color: $primary-color;
+  color: $third-color;
+  margin: 2rem 2rem 0 0;
+}
+
+.client-balance > span {
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: $big-text;
+}
+
+.funds__button {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}

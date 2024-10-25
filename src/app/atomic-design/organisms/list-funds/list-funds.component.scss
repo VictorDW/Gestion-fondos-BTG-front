@@ -1,0 +1,113 @@
+@import '../../../../styles/variables.scss';
+
+.fund-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  width: 100%;
+  height: 72vh;
+}
+
+.fund-container__article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 80px;
+}
+
+
+.order__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  width: 95px;
+  height: 27px;
+  padding: 8px 14px 8px 12px;
+  border-radius: 12px;
+  color: $secondary-color;
+  background-color: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: border 0.2s ease-out;
+
+  &:hover {
+      border: 1px solid $primary-color;
+  }
+
+  & span {
+      font-weight: 600;
+      font-size: $medium-text;
+  }
+}
+
+.article__filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3rem;
+  margin-top: 15px;
+  margin-right: 104px;
+}
+
+.filter__item {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  font-size: $medium-text;
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.article__list {
+  padding: 0 100px 0 100px;
+  height: calc(100vh - 510px);
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+      background-color: $background-color;
+      border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: $primary-color;
+      border-radius: 20px;
+  }
+}
+
+.list__funds {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-bottom: 2px solid $secondary-color;
+}
+
+.funds__item {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 10px;
+  padding: 1rem 1rem 1rem 0;
+  list-style: none;
+  color: $primary-color;
+}
+
+.item__name {
+  font-weight: 700;
+  font-size: $big-text;
+}
+
+.item__category {
+  font-size: $medium-text;
+  color: $primary-color;
+}
+
+.item__minimumAmount {
+  font-weight: 700;
+  font-size: $big-text;
+  color: $primary-color;
+}

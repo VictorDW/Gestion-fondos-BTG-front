@@ -1,0 +1,60 @@
+@import '../../../../styles/variables.scss';
+
+.subscritends_container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 50px;
+}
+
+.subscritends-container__list {
+    padding: 0 50px 0 50px;
+    height: calc(100vh - 350px);
+}
+
+.list__subscritend {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 2px solid $primary-color;
+}
+
+.subscritend {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    list-style: none;
+    padding: 1rem 1rem 1rem 0;
+    color: $primary-color;
+    font-weight: 600;
+}
+
+.subscritend__name {
+    font-size: $big-text;
+}
+
+.subscritend__amount {
+    color: $secondary-color;
+    font-size: $medium-text;
+    font-weight: 700;
+}
+
+.unsubscribe__btn {
+    width: 42px;
+    height: 42px;
+    font-size: 1.6rem;
+    line-height: normal;
+    padding: 0 10px;
+    border-radius: 50%;
+    color: $error-color;
+    background-color: transparent;
+    border: 1px solid $error-color;
+    cursor: pointer;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        color: $third-color;
+        border: 1px solid transparent;
+        background: $error-color;
+    }
+}

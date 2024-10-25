@@ -1,0 +1,40 @@
+<main class="fund-container">
+  <article class="fund-container__article">
+
+    <section class="article__filter">
+
+      <div class="filter__item">
+        <span>{{CATEGORY_FILTER}} </span>
+        <app-select
+        [options]="allCategory"
+        (valueOptionSelected)="updateFilterByCategory($event.toString())"
+        >  
+        </app-select>
+      </div>
+
+      <div class="filter__item">
+        <span>{{AMOUNT_FILTER}} </span>
+        <app-select
+        [options]="allAmount"
+        (valueOptionSelected)="updateFilterByAmount(+$event)"
+        >  
+        </app-select>
+      </div>
+      
+      <button class="order__btn" (click)="changeStateDirection()">
+        <i [class]="buttonDirection.icon"></i>
+        <span>{{ buttonDirection.text }}</span>
+      </button>
+
+    </section>
+    <section class="article__list">
+        <ul *ngFor="let fund of allFunds" class="list__funds">
+            <li class="funds__item">
+                <span class="item__name">{{fund.name}}</span>
+                <span class="item__category">{{CATEGORY}} {{fund.category}}</span>
+            </li>
+            <span class="item__minimumAmount">{{SYMBOL}} {{fund.minimumAmount | decimal}}</span>
+        </ul>
+    </section>
+  </article>
+</main>

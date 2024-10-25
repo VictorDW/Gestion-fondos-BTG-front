@@ -1,0 +1,13 @@
+@import '../../../../styles/variables.scss';
+
+.my-funds {
+  position: fixed;
+  width: 83%;
+  height: 100vh;
+  margin-left: 17%;
+}
+
+.my-funds__nav {
+  display: flex;
+  justify-content: flex-start;
+}

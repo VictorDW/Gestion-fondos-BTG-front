@@ -1,0 +1,12 @@
+<section class="subscritends_container">
+    <article class="subscritends-container__list">
+        <ul class=list__subscritend *ngFor="let subscribed of subscribeds">
+            <li class="subscritend">
+                <span class="subscritend__name">{{ subscribed.name }}</span>
+                <span class="subscritend__amount">{{ SYMBOL_PESOS }} {{ subscribed.investmentAmount | decimal }}</span>
+            </li>
+            <button class="unsubscribe__btn fa-solid fa-xmark" (click)="unsubscribedFund(subscribed.fundId)">
+            </button>
+        </ul>
+    </article>
+</section>

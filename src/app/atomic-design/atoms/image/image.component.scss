@@ -1,0 +1,16 @@
+.logo__header {
+  width: min(200px, 100%);
+}
+
+.img_header{
+  max-width: 100%;
+  padding: 0.6em 0;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+

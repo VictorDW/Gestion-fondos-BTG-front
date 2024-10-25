@@ -1,0 +1,28 @@
+<section class="funds">
+  <article class="article-client">
+    <div class="client-welcome">
+      <span>{{ MESSAGE_WELCOME }}</span>
+      <span>{{ nameClient }}</span>
+    </div>
+    <div class="client-balance">
+      <span>{{ SYMBOL_PESOS }} {{ availableBalance | decimal }} {{ COP }}</span>
+    </div>
+  </article>
+
+  <app-list-funds
+  [allFunds]="allFunds"
+  [allCategory]="optionsCategory"
+  [allAmount]="optionsAmount"
+  >
+  </app-list-funds>
+
+  <article class="funds__button">
+    <app-button [itemButton]="subscribeButton" (click)="changeStateFrom()"></app-button>
+  </article>
+
+  <app-form *ngIf="isShowFrom"
+  (closeForm)="changeStateFrom()"
+  > 
+  </app-form>
+
+</section>
